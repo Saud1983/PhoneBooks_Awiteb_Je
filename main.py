@@ -74,9 +74,11 @@ def sort_array(array):
     list1 = []
     while array: # 1st loop that shrenks in every loop
         current_item = array[0] # To always select the 1st elemnt of the array after the previous 1st element has been removed
-        for i in array: # To iterate throw array
-            if i < current_item:
+        for i in array: # To iterate throw array selecting all elemnts one by one
+            if i < current_item: # compair the new selected element with the first elemnet of the array
                 current_item = i # Update the cerrent_item with the smaller value when the condition is True
         list1.append(current_item) # Append the next smallest value to another list that will build up more and more until the while loop has stopped
         array.remove(current_item) # Remove the same smalledt value from the original list that shrenks more and more until it has no elements and that but an end to while loop
     return list1 # return the sorted list that starts elements from the smallest to biggest
+
+# Sort from maimum to minimum just chane the "less than" operator < to "greater than" operator in if statement
