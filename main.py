@@ -101,3 +101,18 @@ def sort_array(array, type):
     return list1 # return the sorted list that starts elements from the smallest to biggest
 
 print(sort_array([99 , 314 , 8 , 200 , 23],"S"))
+
+------------------------------------------------------------------
+
+def factorial(number):
+  list1 = [] # New list to add all the factorial numbers
+  result=1 # Inital Value to be used at the end with value 1 that doesn't affect the multiplication
+
+  for i in range(number): # Iterate Throw a range with length of a givin number
+      list1.append(i+1) # Append all number to the list after adding 1 because the range starts from 0
+
+  for n in list1: # Iterate throw the new list to get one element at a time
+      result = result * n # make the math with new element, remember that the result has a value of 1 in the first round
+  return result # return the result
+
+------------------------------------------------------------------
