@@ -121,6 +121,8 @@ def primes_nums(array):
     primes_list = [] # A list that will contain all the prime numbers
     for i in array: # Iterate throw the original list
         pr = True # Set Inital value to be used later
+
+        # need to make sure is it enough t use i or we have add +1
         for x in range(2, i+1): # Loop throw a range from 2 to that element value in the original list
             if i % x == 0: # This conditional tests the element throw out the whole range.
                 pr = False # It's enough to find one number that has False becase 1 and the number it self are not included in the range.
