@@ -129,3 +129,11 @@ def primes_nums(array):
         if pr == True : # This only allow prime numbers to go inside
             primes_list.append(i) # Building up the new list with prime numbers
     return primes_list # return the list that contains prime numbers
+
+------------------------------------------------------------------
+# To return a sequence numbers from 0 to that number as string
+def numbers_range(number):
+    asstring = ""
+    for i in range(number+1):
+        asstring = asstring +" "+ str(i)
+    return asstring
