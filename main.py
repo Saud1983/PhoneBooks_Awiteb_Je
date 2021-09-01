@@ -133,7 +133,7 @@ def primes_nums(array):
 ------------------------------------------------------------------
 # To return a sequence numbers from 0 to that number as string
 def numbers_range(number):
-    asstring = ""
-    for i in range(number+1):
-        asstring = asstring +" "+ str(i)
+    asstring = "0"
+    for i in range(1,number+1):
+            asstring = asstring + " " + str(i)
     return asstring
