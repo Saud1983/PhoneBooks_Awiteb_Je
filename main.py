@@ -28,7 +28,7 @@ def input_type(value):
 value = "21"
 print(f"{value} is {input_type(value)}")
 
-----------------------------------------------------
+# ----------------------------------------------------
 # using dictionaries
 def most_frequent_element(arr):
     dic = {} # A dictionary for all the list elemnts as a key and elemnt count as a value
@@ -68,7 +68,7 @@ def most_frequent(List):
 List = [2, 1, 2, 2, 1, 3]
 print(most_frequent(List))
 
-------------------------------------------------------------------
+# ------------------------------------------------------------------
 # Sort from minimum to maximum
 def sort_array(array):
     list1 = []
@@ -102,7 +102,7 @@ def sort_array(array, type):
 
 print(sort_array([99 , 314 , 8 , 200 , 23],"S"))
 
-------------------------------------------------------------------
+# ------------------------------------------------------------------
 
 def factorial(number):
   list1 = [] # New list to add all the factorial numbers
@@ -115,7 +115,7 @@ def factorial(number):
       result = result * n # make the math with new element, remember that the result has a value of 1 in the first round
   return result # return the result
 
-------------------------------------------------------------------
+# ------------------------------------------------------------------
 
 def primes_nums(array):
     primes_list = [] # A list that will contain all the prime numbers
@@ -130,10 +130,23 @@ def primes_nums(array):
             primes_list.append(i) # Building up the new list with prime numbers
     return primes_list # return the list that contains prime numbers
 
-------------------------------------------------------------------
+# ------------------------------------------------------------------
 # To return a sequence numbers from 0 to that number as string
 def numbers_range(number):
     asstring = "0"
     for i in range(1,number+1):
             asstring = asstring + " " + str(i)
     return asstring
+
+# ------------------------------------------------------------------
+# Date reformat
+def date_format(date):
+    str_hi =""
+    for i in date:
+        if i.isnumeric():
+            str_hi = str_hi + i
+        else:
+            str_hi = str_hi + "-"
+    return date + "|" + str_hi + "|" + date[5]+ "/" + date[7:9]+ "/" + date[:4]
+
+print(f"{date_format('2019/2/14')}")
