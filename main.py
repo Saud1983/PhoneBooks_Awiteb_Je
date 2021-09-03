@@ -150,3 +150,41 @@ def date_format(date):
     return date + "|" + str_hi + "|" + date[5]+ "/" + date[7:9]+ "/" + date[:4]
 
 print(f"{date_format('2019/2/14')}")
+
+# ------------------------------------------------------------------
+# Count Down
+# Wrong way
+def countDownX(number):
+    strs = ""
+    for _ in range(number+1):
+        strs += str(_) + " "
+    strs1 = strs[::-1]
+    return strs1[1::]
+
+print(countDownX(15))
+
+#output
+# Should be 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+# the result 51 41 31 21 11 01 9 8 7 6 5 4 3 2 1 0
+
+# correct way
+def countDown1(number):
+    strs = ""
+    for _ in range(number+1)[::-1]: # to start the range backwards
+#   for i in range(number,-1,-1) start from number upto but not included -1, and -1 for going backwards
+        strs += str(_) + " "
+    return strs.strip() # strip() is to Remove spaces at the beginning and at the end of the string
+
+print(countDown1(15))
+
+# result without strip() "15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 "
+# result with    strip() "15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0"
+
+# Another correct ways
+def countDown2(number):
+    strs = []
+    for _ in range(number,-1,-1):
+        strs.append(str(_))
+    return " ".join(strs) # join reads all string elemnts incide a list and joint them together with what ever inside " ".join(list), but If the elemen are not string type then the for loop is a must to use "".join
+
+print(countDown2(15))
