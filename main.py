@@ -224,3 +224,13 @@ def match_arrays(array1, array2):
     return False # return False when the count of the first array does not match the count of the other array
 
 print(match_arrays(["word1", "wo", "word2"],["word2", "word1", "wo"]))
+
+# ------------------------------------------------------------------
+
+def number_sum(num):
+    total = 0
+    for i in range(num+1):
+        total = total + i
+    return total
+
+print(number_sum(7))
