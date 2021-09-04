@@ -140,14 +140,14 @@ def numbers_range(number):
 
 # ------------------------------------------------------------------
 # Date reformat
+
 def date_format(date):
-    str_hi =""
-    for i in date:
-        if i.isnumeric():
-            str_hi = str_hi + i
-        else:
-            str_hi = str_hi + "-"
-    return date + "|" + str_hi + "|" + date[5]+ "/" + date[7:9]+ "/" + date[:4]
+    whole = date.split("/")
+    hy , sl, cl = "-", "/", ' | '
+    for i in range(1):
+        str_hy = whole[i] + hy + whole[i+1] + hy + whole[i+2]
+        str_sl = whole[i+1] + sl + whole[i+2] + sl + whole[i-i]
+        return date + cl + str_hy + cl + str_sl
 
 print(f"{date_format('2019/2/14')}")
 
@@ -188,3 +188,39 @@ def countDown2(number):
     return " ".join(strs) # join reads all string elemnts incide a list and joint them together with what ever inside " ".join(list), but If the elemen are not string type then the for loop is a must to use "".join
 
 print(countDown2(15))
+
+def countDown3(number):
+    return " ".join(str(i) for i in range(number,-1,-1))
+
+# ------------------------------------------------------------------
+# Sum Even numbers
+def sum_even(arr):
+    total = 0 # initial value for some to be used later
+    for i in arr: # Iterate throw the list
+        if i % 2 == 0: # If the selected element divisable by 2 then it's even number
+            total = total + i # Add this number to the total
+    return total    # return the total of sum
+
+# ------------------------------------------------------------------
+
+def reverse_words(str1, str2):
+    return str2 +", "+ str1
+
+print((reverse_words("Weekend","fianlly")))
+
+"fianlly, Weekend"
+"finally, Weekend"
+
+# ------------------------------------------------------------------
+
+def match_arrays(array1, array2):
+    if len(array1) == len(array2): # Check to make sure that the second array is not bigger than the 1st array
+        for i in array1: # Loop throw the list and select an element
+            if i in array2: # Find out if that element is in the 2nd array
+                continue # Continue looping selecting another elements without doing anything
+            else: # If the selected element is not in the second array
+                return False # Stop the process and return False
+        return True # return True after all elements passed the test
+    return False # return False when the count of the first array does not match the count of the other array
+
+print(match_arrays(["word1", "wo", "word2"],["word2", "word1", "wo"]))
