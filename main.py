@@ -116,7 +116,17 @@ def factorial(number):
   return result # return the result
 
 # ------------------------------------------------------------------
+# Prime numbers
 
+"""
+Note that you can squreroot a givin number ex(100) then divide that givin
+number by only those prime numbers less than the result of squareroot of that
+givin number 100**0.5 = 10 -> (2, 3, 5, 7) if that givin number (100) not
+divisable by any number of those prime numbers (2, 3, 5, 7) then the givin
+number is a prime without havig to divide it by all number less than that givin
+number
+
+"""
 def primes_nums(array):
     primes_list = [] # A list that will contain all the prime numbers
     for i in array: # Iterate throw the original list
@@ -124,11 +134,21 @@ def primes_nums(array):
 
         # need to make sure is it enough t use i or we have add +1
         for x in range(2, i+1): # Loop throw a range from 2 to that element value in the original list
+        # for x in range(2, i**0.5): # It's better to use the squareroot to reduse the numbers that givin number Should be devided by.
             if i % x == 0: # This conditional tests the element throw out the whole range.
                 pr = False # It's enough to find one number that has False becase 1 and the number it self are not included in the range.
         if pr == True : # This only allow prime numbers to go inside
             primes_list.append(i) # Building up the new list with prime numbers
     return primes_list # return the list that contains prime numbers
+
+# One line ways
+def prime_num_one_line(array):
+    return [ i for i in array if all ( i%j != 0 for j in range(2,int(i**0.5) + 1))]
+
+array = [i for i in range(100)]
+print(array)
+
+print(prime_num_one_line(array))
 
 # ------------------------------------------------------------------
 # To return a sequence numbers from 0 to that number as string
@@ -142,15 +162,14 @@ def numbers_range(number):
 # Date reformat
 
 def date_format(date):
-    whole = date.split("/")
-    hy , sl, cl = "-", "/", ' | '
-    for i in range(1):
-        str_hy = whole[i] + hy + whole[i+1] + hy + whole[i+2]
-        str_sl = whole[i+1] + sl + whole[i+2] + sl + whole[i-i]
-        return date + cl + str_hy + cl + str_sl
+    whole = date.split("/")  # Split a string to multi elements in a list based on "/"
+    hy, sl, cl = "-", "/", ' | '  # Initial symbols to use in formatting
+    for i in range(1):  # Only one time iteration that needed
+        str_hy = whole[i] + hy + whole[i+1] + hy + whole[i+2]  # Formatting YYYY-M(M)-D(D) with hyphen, (M),(D) optional
+        str_sl = whole[i+1] + sl + whole[i+2] + sl + whole[i-i]  # Formatting M(M)-D(D)-YYYY with hyphen, (M),(D) optional
+        return date + cl + str_hy + cl + str_sl  # Final Format 2019/2/14 | 2019-2-14 | 2/14/2019
 
 print(f"{date_format('2019/2/14')}")
-
 # ------------------------------------------------------------------
 # Count Down
 # Wrong way
@@ -234,3 +253,17 @@ def number_sum(num):
     return total
 
 print(number_sum(7))
+
+# ------------------------------------------------------------------
+
+def elements_math(lis: list) -> int:  # The expected passed value is a list and the expected return is an integer
+    u = 0  # Initial value for the sum of all 1st elemnets
+    d = 0  # Initial value for the sum of all 2nd elemnets
+    for i, o in lis:  # Iterate throw the list selecting the elements inside the 1st list element
+        u += i  # adding the list[0][i]
+        d += o  # adding the list[0][o]
+    return u - d
+
+print(elements_math([[10,0],[3,5],[5,8]]))
+
+# ------------------------------------------------------------------
