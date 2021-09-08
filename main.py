@@ -1,34 +1,21 @@
 def input_type(value):
     try:
-        number = int(value)
-        message = "integer"
-        return message
+        int(value)
+        return "integer"
     except ValueError:
         try:
-            number = float(value)
-            message = "double"
-            return message
+            float(value)
+            return "double"
         except ValueError:
-            number = value
-            message = "string"
-            return message
-
-    # Shorten the code
-    # try:
-    #     int(value)
-    #     return "integer"
-    # except ValueError:
-    #     try:
-    #         return "double"
-    #     except ValueError:
-    #         return "string"
+            return "string"
 
 
 
 value = "21"
 print(f"{value} is {input_type(value)}")
 
-# ----------------------------------------------------
+# ------------------------------------------------------------------
+
 # using dictionaries
 def most_frequent_element(arr):
     dic = {} # A dictionary for all the list elemnts as a key and elemnt count as a value
@@ -267,3 +254,17 @@ def elements_math(lis: list) -> int:  # The expected passed value is a list and 
 print(elements_math([[10,0],[3,5],[5,8]]))
 
 # ------------------------------------------------------------------
+
+def swap_cases(value):
+    new_str = ""
+    for i in value:
+        # if i.isalpha():  # Use if you want to only accept alphabet chars
+        new_str += i.swapcase()
+        # Or
+        #     if i == i.lower():
+        #         new_str += i.upper()
+        #     else:
+        #         new_str += i.lower()
+    return new_str
+
+print(Swap_cases("AbCdEfG1@s"))
