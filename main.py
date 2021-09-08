@@ -268,3 +268,85 @@ def swap_cases(value):
     return new_str
 
 print(Swap_cases("AbCdEfG1@s"))
+
+# ------------------------------------------------------------------
+
+# The idea is to check the selected element, if it's in the new_lis pass otherwise adding it
+def remove_duplicate(arr):
+  new_lis = []
+  for i in arr:
+    if i not in new_lis:
+      new_lis.append(i)
+  return new_lis
+
+print(remove_duplicate([1,2,3,3]))
+
+# ------------------------------------------------------------------
+
+def get_duplicate_elements(arr):
+    unique_elem = []
+    dupl_elem = []
+
+    for i in arr:
+        if i not in unique_elem:
+            unique_elem.append(i)
+        elif i in unique_elem:
+            dupl_elem.append(i)
+    return dupl_elem
+
+print(get_duplicate_elements([10,3,10,3]))
+
+# ------------------------------------------------------------------
+
+def logical_and(a, b):
+    if a and b:
+        return True
+    else:
+        return False
+
+
+print(logical_and(False,False))
+
+# ------------------------------------------------------------------
+
+# Clear the list if it's contains a null values
+def clean_array(arr):
+    new_lis = []
+    for i in arr:
+        if i is not None:
+            new_lis.append(i)
+    return new_lis
+
+print(clean_array([None,None,3]))
+
+# ------------------------------------------------------------------
+
+def stringCheck(value):
+    for i in value:
+        for x in value:
+            if i != x:
+                return False
+            else:
+                continue
+    return True
+
+print(stringCheck([ "&&", "&&&", "&&", "&&"]))
+print(stringCheck([ "a", "A", "a"]))
+
+# ------------------------------------------------------------------
+
+def convertPercent(percentage):
+    p = percentage.split("%")
+    return float(p[0]) / 100
+
+print(convertPercent("288%"))
+
+# ------------------------------------------------------------------
+
+def search(word, character):
+    for index, char in enumerate(word):
+        if char.lower() == character.lower():
+            return index
+    return -1
+
+print(search("python","n"))
