@@ -259,7 +259,7 @@ def swap_cases(value):
     new_str = ""
     for i in value:
         # if i.isalpha():  # Use if you want to only accept alphabet chars
-        new_str += i.swapcase()
+        new_str += i.swapcase() # Use this line or hashtag it and use the code underneath
         # Or
         #     if i == i.lower():
         #         new_str += i.upper()
@@ -282,19 +282,20 @@ def remove_duplicate(arr):
 print(remove_duplicate([1,2,3,3]))
 
 # ------------------------------------------------------------------
+# The idea is to check the selected element, if it's in the unique_elem list then it's duplicateed
 
 def get_duplicate_elements(arr):
     unique_elem = []
     dupl_elem = []
 
     for i in arr:
-        if i not in unique_elem:
+        if i not in unique_elem:  # Add the selected element to unique_elem so it can be tested again for duplicated values
             unique_elem.append(i)
-        elif i in unique_elem:
+        elif i in unique_elem and i not in dupl_elem:  # To make sure that the selected element has faild in the first conditional but not yet added in the second one
             dupl_elem.append(i)
     return dupl_elem
 
-print(get_duplicate_elements([10,3,10,3]))
+print(get_duplicate_elements([10,3,10,3,3]))
 
 # ------------------------------------------------------------------
 
@@ -313,7 +314,7 @@ print(logical_and(False,False))
 def clean_array(arr):
     new_lis = []
     for i in arr:
-        if i is not None:
+        if i is not None:  # Here is how to find a null value
             new_lis.append(i)
     return new_lis
 
@@ -325,7 +326,7 @@ def stringCheck(value):
     for i in value:
         for x in value:
             if i != x:
-                return False
+                return False  # It's enough to find one element not matched to stop the code
             else:
                 continue
     return True
@@ -345,8 +346,41 @@ print(convertPercent("288%"))
 
 def search(word, character):
     for index, char in enumerate(word):
-        if char.lower() == character.lower():
+        # If char.lower() == character.lower(): # In case that the character has been givin in different lettercase
+        if char == character:
             return index
     return -1
 
 print(search("python","n"))
+
+# ------------------------------------------------------------------
+
+# Cone Volume
+def cone_volume(radius, height):
+    return (1/3)*3.142*float(radius)**2*float(height)
+
+print(cone_volume(2.0,4.0))
+
+# ------------------------------------------------------------------
+def hashtag_it(array):
+    stri=""
+    for i in array:
+        stri += "#"+i+" "
+    return stri.strip()  # Strip() is used to remove the prefix and suffix spaces
+print(hashtag_it(["SAFCSP", "entrepreneur"]))
+
+# Result "#SAFCSP #entrepreneur"
+
+# ------------------------------------------------------------------
+def filp_even_odd(array):
+    result = []
+    for i in array:
+      if i % 2 == 0:
+        i += 1
+        result.append(i)
+      else:
+        i -= 1
+        result.append(i)
+    return result
+
+print(filp_even_odd([24, 13, 14, 18]))
