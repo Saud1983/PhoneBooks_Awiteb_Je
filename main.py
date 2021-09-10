@@ -536,6 +536,30 @@ def word_length(arr):
     return lis1
 
 print(f"{word_length(['wait' ,'Go' , 'run'])}")
+
+# ------------------------------------------------------------------
+# return one list with all elemnts from both lists that are sorted
+def merge_sort(node1, node2):
+    for i in node2:
+        node1.append(i)
+    node1.sort()
+    return node1
+
+print(f"{merge_sort([20,10],[-11,10])}")
+
+# ------------------------------------------------------------------
+# return only the unique values
+def unique(arr):
+    lis1 = []
+    dup_lis =[]
+    for index, value in enumerate(arr):
+        if value in arr[index+1:]:
+            dup_lis.append(value)
+        elif value not in dup_lis:
+            lis1.append(value)
+    return lis1
+
+print(f"{unique([ 4 ,3 ,-5 ,4 ])}")
 # ------------------------------------------------------------------
 # Je Code
 
