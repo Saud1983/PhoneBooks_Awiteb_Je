@@ -462,26 +462,42 @@ def missingLetter(txt):
 print(f"{missingLetter('klnop')}")
 
 # ------------------------------------------------------------------
-# To return the longest string of zeros
+# To return the longest string of zeros or return " " if there is no zeros
 def longestZero(str):
     str1 = ""
     result = ""
     counter = 0
-    if "0" in str:
-        for i in str:
-            if i == "0":
+    if "0" in str: # To make sure that there is a zero in str before doing anything else
+        for i in str: # Loop throw the str
+            if i == "0": # Start using the code underneath when found any 0
                 str1 = str1 + i
                 counter += 1
             else:
                 if counter > len(result):
                     result = str1
+                    str1 = ""
                     counter = 0
+
     else:
         result = '" "'
 
     return result
 
-print(f"{longestZero('110000011001110101')}")
+print(f"{longestZero('000110000011001110101')}")
+
+# ------------------------------------------------------------------
+# To sum each elemnt with all previous elements in array
+def cumulative_sum(arr):
+    lis1=[]
+    for i,v in enumerate(arr):
+        if i > 0:
+            m = sum(arr[:i]) + v
+            lis1.append(m)
+        else:
+            lis1.append(v)
+    return lis1
+
+print(f"{cumulative_sum([5,-5])}")
 
 # ------------------------------------------------------------------
 # Je Code
