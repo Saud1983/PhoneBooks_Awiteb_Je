@@ -386,6 +386,106 @@ def filp_even_odd(array):
 print(filp_even_odd([24, 13, 14, 18]))
 
 # ------------------------------------------------------------------
+
+def countWords(txt):
+    lis = txt.split(" ")
+    return len(lis)
+
+
+print(f"{countWords('Good Morning')}")
+
+# ------------------------------------------------------------------
+# To find the match for the last two characters from both words
+def compare_two_words(s1, s2):
+    s1_len, s2_len = len(s1), len(s2) # To use the length for having a correct indexing
+
+    s11 = s1[s1_len-2:] # The last to characters
+    s22 = s2[s2_len-2:] # The last to characters
+    if s11 == s22:
+        print(f"s1 = {s11} s2 = {s22}")
+        return True
+    else:
+        print(f"s1 = {s11} s2 = {s22}")
+        return False
+
+print(f"{compare_two_words('persona' ,'person')}")
+
+# ------------------------------------------------------------------
+# Replace the word 'the' with a correct a or an based on the next word
+
+def replaceThe(txt):
+    lis = txt.split()
+    str1 = ""
+    for index, value in enumerate(lis):
+        if value == 'the':
+            if lis[index+1][0] in "aeoiu":
+                lis[index] = 'an'
+            else:
+                lis[index] = 'a'
+    for i in lis:
+        str1 += i+" "
+    return str1.strip()
+
+print(f"{replaceThe('Get the idea')}")
+
+# ------------------------------------------------------------------
+# Get the first character that can be converted as integer
+
+def left_digit(str):
+    for i in str:
+        try:
+            num = int(i)
+            break
+        except ValueError:
+            continue
+    return num
+
+
+print(f"{left_digit('I want 2 be programmer 2030')}")
+
+# ------------------------------------------------------------------
+
+def missingLetter(txt):
+    str1 = 'abcdefghijklmnopqrstuvwxyz'
+    txt_len = len(txt)
+    for index, value in enumerate(str1):
+        if value == txt[0]:
+            str1 = str1[index:(index+txt_len)]
+            counter = 0
+            for i in str1:
+                if i == txt[counter]:
+                    counter +=1
+                else:
+                    return i
+    return "No Missing Letter"
+
+print(f"{missingLetter('klnop')}")
+
+# ------------------------------------------------------------------
+# To return the longest string of zeros
+def longestZero(str):
+    str1 = ""
+    result = ""
+    counter = 0
+    if "0" in str:
+        for i in str:
+            if i == "0":
+                str1 = str1 + i
+                counter += 1
+            else:
+                if counter > len(result):
+                    result = str1
+                    counter = 0
+    else:
+        result = '" "'
+
+    return result
+
+print(f"{longestZero('110000011001110101')}")
+
+# ------------------------------------------------------------------
+# Je Code
+
 info = {
     'Amal' : '1111111111' ,
     'Mohammed' : '2222222222' ,
@@ -448,7 +548,7 @@ while i != 4:                                                          # اذا 
 
 
 # ------------------------------------------------------------------
-
+#Awiteb Code
 import re
 from typing import Union
 
