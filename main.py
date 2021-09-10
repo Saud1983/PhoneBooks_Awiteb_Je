@@ -499,6 +499,21 @@ def cumulative_sum(arr):
 
 print(f"{cumulative_sum([5,-5])}")
 
+
+# ------------------------------------------------------------------
+# It works well in Pycharm but didn't pass the challenge
+def removeSpecialCharacters(str):
+    str1 = '.-_ '
+    str2 = ""
+    for i in str:
+        if i.isalnum() or i in str1:
+            str2 = str2 + i
+        else:
+            str2 = str2.strip()
+    return str2
+
+print(f"{removeSpecialCharacters('He good @ tennis!')}")
+
 # ------------------------------------------------------------------
 # Je Code
 
