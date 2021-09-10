@@ -515,6 +515,28 @@ def removeSpecialCharacters(str):
 print(f"{removeSpecialCharacters('He good @ tennis!')}")
 
 # ------------------------------------------------------------------
+# Replace space ' ' with '#'
+def hasSpace(str):
+    str1=""
+    for i in str:
+        if i != " ":
+            str1 = str1 + i
+        else:
+            str1 = str1 + "#"
+    return str1
+
+print(f"{hasSpace('I love challenges')}")
+
+# ------------------------------------------------------------------
+# counts characters in each elemnt
+def word_length(arr):
+    lis1 = []
+    for i in arr:
+        lis1.append(len(i))
+    return lis1
+
+print(f"{word_length(['wait' ,'Go' , 'run'])}")
+# ------------------------------------------------------------------
 # Je Code
 
 info = {
