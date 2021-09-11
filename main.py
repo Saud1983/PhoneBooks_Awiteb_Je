@@ -560,6 +560,25 @@ def unique(arr):
     return lis1
 
 print(f"{unique([ 4 ,3 ,-5 ,4 ])}")
+
+# ------------------------------------------------------------------
+# return a sting that has been sorted by length of words from smallest to largest
+def sortByLength(txt):
+    lis = txt.split()  # Split the sting into a multi elements list
+    max= 0  # Initial value of the maximum word length that will be used later
+    for l in lis:  # Loop throw the list to find the element that has maximum lenth
+        if len(l) > max:
+            max = len(l)
+
+    lis_sort='' # Initial value of a string that would be returned from the function
+    for i in range(0,max+1):  # Loop throw a range starts from 0 to the number that represent the largest word length that has been found eralier +1
+        for x in lis:  # loop throw the same list again testing each elemnt to find all words with a length that matches the upper selected value, starts from length 0 then 1 then 2 .. until the maximum length that has been found before
+            if len(x) == i:  # Select each element from the list and check its length compared with the selected number of the range that represent the length that need to be found in the list elements
+                lis_sort = lis_sort + " " + x
+    return lis_sort.strip()
+
+
+print(f"{sortByLength('Have a nice day')}")
 # ------------------------------------------------------------------
 # Je Code
 
