@@ -580,6 +580,19 @@ def sortByLength(txt):
 
 print(f"{sortByLength('Have a nice day')}")
 # ------------------------------------------------------------------
+# 
+def add_five(arr):
+    if len(arr) > 0:
+        for index, value in enumerate(arr):
+            value = value + "5"
+            arr[index] = value
+    else:
+        return arr
+    return arr
+
+print(f"{add_five([ 'hi', 'G', 'welcome' ])}")
+# output = ['hi5', 'G5', 'welcome5']
+# ------------------------------------------------------------------
 # Je Code
 
 info = {
