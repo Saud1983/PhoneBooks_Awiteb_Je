@@ -621,6 +621,40 @@ def addStrNums(num1, num2):
         return str(-1)
 
 print(f"{addStrNums('2a','3')}")
+
+# ------------------------------------------------------------------
+# Is to convert from octal to dicemal, from decimal to binary.
+# Note: this function accepted 8 and 9 that they are not allowed because no octal number has 8 or 9 value in it
+
+def oct_to_bin(octal):
+    result = 0
+    length_of_digits = len(str(octal))  # To determine how many digits in the octal number
+    octal_str = str(octal)  # To use indexing property after converting the octal from integer type to string type
+    for exponent in range(0,length_of_digits):  # Iterate to get exponent series from zero up to the length of that octal number - 1
+        digit = int(octal_str[length_of_digits-1])  # To select and convert one digit in each loop
+        result = result + (8 ** exponent) * digit  # Use mathematical formula
+        length_of_digits -= 1  # Change the indexing to select another digit in the next loop
+    decimal = result
+
+    str1 = ""  # This variable to add zeros and ones to it
+    digit_count = len(str(decimal))  # this varibale is to count how many digits in the passed in num
+    category = int(
+        "9" * digit_count)  # This variable is to get the maximum number that has the same number of digits, it should be 9 or 99 or 999 or 9999 etc.
+    for x in range(digit_count * 3 + 1, -1,
+                   -1):  # This is reversed range stops in zero, and digit_count*3+1 formula is to give the power that base 2 needed to reach the maximum number less than category or at least only one exponent that  exceeds category so the loop will not use useless powers for the base 2 and save memory and time
+        if 2 ** x > category + 1:  # using the above formula digit_count*3+1 will make this line False all the time or at least True one time only
+            pass
+        else:
+            if 2 ** x <= decimal:  # by using this, the function starts build the string str1 with ones and zeros and removing substracting the 2**x from the giving num
+                str1 = str1 + "1"
+                decimal = decimal - 2 ** x
+            # If you want to see the actual binary number, uncomment the code below and comment the last line
+            else:
+                str1 = str1 + "0"
+
+    return str(int(str1))
+
+print(oct_to_bin(776215676))
 # ------------------------------------------------------------------
 # Je Code
 
