@@ -655,6 +655,23 @@ def oct_to_bin(octal):
     return str(int(str1))
 
 print(oct_to_bin(776215676))
+
+
+# ------------------------------------------------------------------
+# Is to return a string of vowels that has less than or equal the value n
+def first_n_vowels(phrase, n):
+    vowels = 'aeiou'
+    str1 = ""
+    for i in phrase:
+        if i.lower() in vowels:
+            str1 = str1 + i
+
+    if n <= len(str1):
+        return str1[:n]
+    else:
+        return "invalid"
+
+print(first_n_vowels('ProgrAmmEr',3))
 # ------------------------------------------------------------------
 # Je Code
 
