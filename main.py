@@ -610,6 +610,17 @@ def math_expr(expr):
         return False
 
 print(f"{math_expr('7.12*(14/2)+4**2.1')}")
+
+# ------------------------------------------------------------------
+# Do the math if possible or return -1 as str
+def addStrNums(num1, num2):
+    try:
+        n1, n2 =int(num1), int(num2)
+        return str(n1 + n2)
+    except ValueError:
+        return str(-1)
+
+print(f"{addStrNums('2a','3')}")
 # ------------------------------------------------------------------
 # Je Code
 
