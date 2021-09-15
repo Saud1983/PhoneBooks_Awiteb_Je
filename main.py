@@ -579,8 +579,9 @@ def sortByLength(txt):
 
 
 print(f"{sortByLength('Have a nice day')}")
+
 # ------------------------------------------------------------------
-# 
+#
 def add_five(arr):
     if len(arr) > 0:
         for index, value in enumerate(arr):
@@ -592,6 +593,21 @@ def add_five(arr):
 
 print(f"{add_five([ 'hi', 'G', 'welcome' ])}")
 # output = ['hi5', 'G5', 'welcome5']
+
+def math_expr(expr):
+    operators = ['+', '-', '*', '/', '//', '**', '%','(',')','.']
+    str1=""
+    for v in expr:
+        if v not in operators:
+            str1 = str1 + v
+    print(str1)
+    try:
+        int(str1)
+        return True
+    except ValueError:
+        return False
+
+print(f"{math_expr('7.12*(14/2)+4**2.1')}")
 # ------------------------------------------------------------------
 # Je Code
 
