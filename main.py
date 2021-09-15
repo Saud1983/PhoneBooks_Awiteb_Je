@@ -672,6 +672,66 @@ def first_n_vowels(phrase, n):
         return "invalid"
 
 print(first_n_vowels('ProgrAmmEr',3))
+
+# ------------------------------------------------------------------
+# Is to return 12 hours format to 24 hours and vice versa
+def convert_time(time):
+    checker = 'apm '  # To check if there is any am, pm, or space and remove them later
+    time1 = ''  # Initial value to build up a new string without am, pm, or spaces
+    am_pm = ''  # Initial value to be used in conditional and to add am, pm to a 24 format or remove them from a 12 format
+    for i in time:  # Iterate throw the time
+        if 'm' in time:  # This conditional to check whether or not it's a 12 format
+            if i not in checker:  # Only allow numbers for the next line without am, pm, or spaces
+                time1 = time1 + i
+            elif i == 'a':  # To give a value am if the time contains am, that would be used later converting from a 12 to a 24 format
+                am_pm = 'am'
+            elif i == 'p':  # To give a value pm if the time contains pm, that would be used later converting from a 12 to a 24 format
+                am_pm = 'pm'
+        else:  # This works only if the time is in 24 format
+            if i not in checker:  # Only allow numbers for the next line without spaces
+                time1 = time1 + i
+
+    lis = time1.split(':')
+
+    if int(lis[0]) == 12 and am_pm == 'am':  # from 12 to 24 This works converting only ( 12:00 - 12:59 am to 0:00 - 0:59 )
+        lis[0] = '0'
+        am_pm = ''
+        print('( 12:00 - 12:59 am to 0:00 - 0:59 )')
+    elif int(lis[0]) < 12 and am_pm == 'am':  # from 12 to 24 This works converting the range ( 01:00 - 11:59 am to 01:00-11:59 )
+        lis[0] = int(lis[0])
+        am_pm = ''
+        print('( 01:00 - 11:59 am to 01:00-11:59 )')
+    elif int(lis[0]) == 12 and am_pm == 'pm':  # from 12 to 24 This works converting the range ( 12:00 - 12:59 pm to 12:00-12:59 )
+        lis[0] = int(lis[0])
+        am_pm = ''
+        print('( 12:00 - 12:59 pm to 12:00-12:59 )')
+    elif am_pm == 'pm':  # from 12 to 24 This works converting the range ( 01:00 - 11:59 pm to 13:00 - 23:59 )
+        lis[0] = int(lis[0]) + 12
+        am_pm = ''
+        print('( 01:00 - 11:59 pm to 13:00 - 23:59 )')
+    else:
+        if int(lis[0]) == 12:  # from 24 to 12 This works converting only ( 12:00 - 12:59 to  12:00 - 12:59 pm)
+            am_pm = 'pm'
+            print('( 12:00 - 12:59 to  12:00 - 12:59 pm)')
+        elif int(lis[0]) == 00:  # from 24 to 12 This works converting only ( 00:00 - 00:59 to  12:00 - 12:59 am)
+            lis[0] = int(lis[0]) + 12
+            am_pm = 'am'
+            print('( 00:00 - 00:59 to  12:00 - 12:59 am)')
+        elif int(lis[0]) < 12:  # from 24 to 12 This works converting only ( 01:00 - 11:59 to  01:00 - 11:59 am)
+            am_pm = 'am'
+            print('( 01:00 - 11:59 to  01:00 - 11:59 am)')
+        else:                   # from 24 to 12 This works converting only ( 13:00 - 23:59 to  01:00 - 11:59 pm)
+            lis[0] = int(lis[0]) - 12
+            am_pm = 'pm'
+            print('( 13:00 - 23:59 to  01:00 - 11:59 pm)')
+
+    result = str(lis[0]) + ':' + str(lis[1]) + ' ' + am_pm
+    return result
+
+
+print(convert_time('21:25'))
+
+
 # ------------------------------------------------------------------
 # Je Code
 
