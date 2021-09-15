@@ -594,13 +594,15 @@ def add_five(arr):
 print(f"{add_five([ 'hi', 'G', 'welcome' ])}")
 # output = ['hi5', 'G5', 'welcome5']
 
+# ------------------------------------------------------------------
+# This function is to make sure the passed in string can be a math operation or not
 def math_expr(expr):
     operators = ['+', '-', '*', '/', '//', '**', '%','(',')','.']
     str1=""
     for v in expr:
         if v not in operators:
             str1 = str1 + v
-    print(str1)
+    # print(str1)
     try:
         int(str1)
         return True
