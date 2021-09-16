@@ -728,10 +728,38 @@ def convert_time(time):
     result = str(lis[0]) + ':' + str(lis[1]) + ' ' + am_pm
     return result
 
-
 print(convert_time('21:25'))
 
+# ------------------------------------------------------------------
+# postfix expressions
+def postFix(expr):
+    lis = expr.split() # Remove the spaces and this is good to distinguish the difference between 6 55 23 1 and 6 5 5 2 3 1
+    stack = []  # Initial value for stack that will be used for push/pop operations
+    for i in lis: # Iterate and select one element from the lis list
+        if i.isnumeric(): # It only allows integers not floating point
+            stack.append(int(i)) # Push only the numbers
+        else:  # If it's +, -, *, /, or any other symbols
+            right = stack.pop() # Pop the last elemnt of the stack
+            left = stack.pop() # Pop the last elemnt of the stack again!
 
+            # Make sure that the 1st pop goes to the right side of operator and the 2nd pop goes to the left side.
+            if i == '+':
+                result = left + right
+            elif i == '-':
+                result = left - right
+            elif i == '*':
+                result = left * right
+            elif i == '/':
+                result = left / right
+            elif i == '^':
+                result = left ** right
+            else: # It's not allowed to have any other symbols than +, -, *, /, **
+                return 'Invalid'
+            stack.append(int(result))
+    return int(result) # Return the result in integer type
+
+
+print(postFix('4 1 - 2 *'))
 # ------------------------------------------------------------------
 # Je Code
 
