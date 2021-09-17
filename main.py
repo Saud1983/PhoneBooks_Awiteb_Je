@@ -757,6 +757,14 @@ def postFix(expr):
                 return 'Invalid'
             stack.append(int(result))
     return int(result) # Return the result in integer type
+# ------------------------------------------------------------------
+# function working but not accepted in coderhub
+def date_formating(date):
+    lis = date.split('-')
+    return '-'.join(lis[::-1])
+
+
+print(date_formating('2020-02-10'))
 
 
 print(postFix('4 1 - 2 *'))
