@@ -757,17 +757,32 @@ def postFix(expr):
                 return 'Invalid'
             stack.append(int(result))
     return int(result) # Return the result in integer type
+
+print(postFix('4 1 - 2 *'))
 # ------------------------------------------------------------------
-# function working but not accepted in coderhub
+# function working but not accepted in coderhub because the date could be like this '\r\n2020-02-10\r\n'
 def date_formating(date):
     lis = date.split('-')
     return '-'.join(lis[::-1])
 
 
-print(date_formating('2020-02-10'))
+print(date_formating('2020-02-10')) # If the input like this, thats ok the code is good
+
+# Solution
+def date_formating(date):
+    date = date.strip()
+    lis = date.split('-')
+    return '-'.join(lis[::-1])
 
 
-print(postFix('4 1 - 2 *'))
+print(date_formating('\r\n2020-02-10\r\n'))
+
+# Or
+def date_formating(date):
+    return '-'.join(reversed(date.strip().split('-')))
+
+print(date_formating('\r\r2020-02-10\r\n'))
+
 # ------------------------------------------------------------------
 # Je Code
 
