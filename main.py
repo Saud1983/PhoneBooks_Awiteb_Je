@@ -805,6 +805,21 @@ lst1 = ['Geeksforgeeks', 'is', 'a', 'portal', 'for', 'geeks']
 
 print(sorting(lst1))
 
+## Another way without using for loop but it fails with upper case because min()
+def sorting(lst, result=[]):
+    if not lst:
+        return result
+    min_str = min(lst)
+    result.append(min_str)
+    lst.remove(min_str)
+
+    return sorting(lst, result)  # calling function from inside itself
+
+
+lst1 = ['Geeksforgeeks', 'is', 'a', 'portal', 'for', 'geeks']
+
+print(sorting(lst1))
+
 # ------------------------------------------------------------------
 # function for converting numbers to english words from 0 to 1000
 def numToEng(n):
