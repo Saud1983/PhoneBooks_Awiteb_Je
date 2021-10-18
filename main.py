@@ -789,8 +789,8 @@ import re
 import string
 
 
-def sorting(lst):
-    result = []
+def sorting(lst, result=[]):
+
     for i in range(26):
         pattern = re.compile(fr"^{list(string.ascii_lowercase)[i]}")
         for x in lst:
