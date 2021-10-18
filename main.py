@@ -784,6 +784,28 @@ def date_formating(date):
 print(date_formating('\r\r2020-02-10\r\n'))
 
 # ------------------------------------------------------------------
+# function to return a sorted list of strings without using sort() function
+import re
+import string
+
+
+def sorting(lst):
+    result = []
+    for i in range(26):
+        pattern = re.compile(fr"^{list(string.ascii_lowercase)[i]}")
+        for x in lst:
+            if re.match(pattern, x.lower()):
+                result.append(x)
+                lst.remove(x)
+
+    return result
+
+
+lst1 = ['Geeksforgeeks', 'is', 'a', 'portal', 'for', 'geeks']
+
+print(sorting(lst1))
+
+# ------------------------------------------------------------------
 # function for converting numbers to english words from 0 to 1000
 def numToEng(n):
 
