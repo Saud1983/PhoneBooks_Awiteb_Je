@@ -805,6 +805,20 @@ lst1 = ['Geeksforgeeks', 'is', 'a', 'portal', 'for', 'geeks']
 
 print(sorting(lst1))
 
+# Same solution using list comprehension
+import re
+import string
+
+
+def sorting(lst, result=[]):
+    [[(result.append(x), lst.remove(x)) for x in lst if re.match(re.compile(fr"^{list(string.ascii_lowercase)[i]}"), x.lower())] for i in range(26)]
+    return result
+
+
+lst1 = ['Geeksforgeeks', 'is', 'a', 'portal', 'for', 'geeks']
+
+print(sorting(lst1))
+
 ## Another way without using for loop but it fails with upper case because min()
 def sorting(lst, result=[]):
     if not lst:
