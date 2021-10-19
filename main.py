@@ -819,11 +819,11 @@ lst1 = ['Geeksforgeeks', 'is', 'a', 'portal', 'for', 'geeks']
 
 print(sorting(lst1))
 
-## Another way without using for loop but it fails with upper case because min()
+## Another way  using recursive function and lambda inside min()
 def sorting(lst, result=[]):
     if not lst:
         return result
-    min_str = min(lst)
+    min_str = min(lst, key=lambda x: x.lower())
     result.append(min_str)
     lst.remove(min_str)
 
