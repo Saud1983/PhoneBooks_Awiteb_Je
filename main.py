@@ -1,3 +1,30 @@
+# This code for calculate the hash of a software in sha256
+
+import hashlib
+input_path = b"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+correct_sum = "c28b6caf47246b3d21fddec6339ca9ce0c423bcb47c23b9b6d5de0a20a60cacf"
+hasher = hashlib.sha256()
+with open(input_path, "rb") as f:
+    while True:
+        chunk = f.read(524288)
+        if not chunk:
+            break
+        hasher.update(chunk)
+output = hasher.hexdigest()
+print("Result:", output)
+if correct_sum == output:
+    print("The sums match!", correct_sum, "=", 'cmd_output')
+else:
+    print(
+        "The sums don't match! Check that your inputs were correct",
+        correct_sum,
+        "is not equal to",
+        'cmd_output',
+    )
+
+# ------------------------------------------------------------------
+
+
 def input_type(value):
     try:
         int(value)
